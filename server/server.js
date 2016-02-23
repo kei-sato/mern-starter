@@ -90,6 +90,7 @@ app.use((req, res) => {
 
     const store = configureStore(initialState);
 
+    // get actions to be done before rendering from "components", and "dispatch" them with "params"
     fetchComponentData(store.dispatch, renderProps.components, renderProps.params)
       .then(() => {
         const initialView = renderToString(
