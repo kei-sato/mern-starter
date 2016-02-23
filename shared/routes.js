@@ -5,6 +5,11 @@ import App from './container/App';
 import PostContainer from './container/PostContainer/PostContainer';
 import PostDetailView from './container/PostDetailView/PostDetailView';
 
+// enable to reload on css updated 
+import classNames from 'classnames/bind';
+import styles from '../static/css/app';
+let cx = classNames.bind(styles);
+
 const routes = (
   <Route path="/" component={App} >
     <IndexRoute component={PostContainer} />
