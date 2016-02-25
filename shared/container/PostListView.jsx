@@ -1,8 +1,8 @@
 /* eslint no-unused-vars:0 */
 import React, { PropTypes } from 'react';
-import PostListItem from '../../components/PostListItem/PostListItem';
+import PostListItem from '../components/PostListItem';
 import { connect } from 'react-redux';
-import * as Actions from '../../redux/actions/actions';
+import * as Actions from '../redux/actions/actions';
 
 function PostListView(props, context) {
   return (

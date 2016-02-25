@@ -3,8 +3,8 @@
 
 import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
-import PostListItem from '../components/PostListItem/PostListItem';
-import PostCreateView from '../components/PostCreateView/PostCreateView';
+import PostListItem from '../components/PostListItem';
+import PostCreateView from '../components/PostCreateView';
 import React from 'react';
 import expectJSX from 'expect-jsx';
 import { Link } from 'react-router';

@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import React, { Component, PropTypes } from 'react';
-import PostListView from '../container/PostListView/PostListView';
-import PostCreateView from '../components/PostCreateView/PostCreateView';
+import PostListView from '../container/PostListView';
+import PostCreateView from '../components/PostCreateView';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/actions/actions';
 

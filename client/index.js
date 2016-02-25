@@ -5,8 +5,8 @@ import postReducer from '../shared/redux/reducers/reducer';
 import { render } from 'react-dom';
 import React from 'react';
 import App from '../shared/container/App';
-import PostListView from '../shared/container/PostListView/PostListView';
-import PostDetailView from '../shared/container/PostDetailView/PostDetailView';
+import PostListView from '../shared/container/PostListView';
+import PostDetailView from '../shared/container/PostDetailView';
 import { Router, browserHistory, Route, IndexRoute, match } from 'react-router';
 import routes from '../shared/routes';
 
