@@ -4,9 +4,13 @@ import PostListItem from '../components/PostListItem';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/actions/actions';
 
+import classNames from 'classnames/bind';
+import styles from '../scss/app';
+let cx = classNames.bind(styles);
+
 function PostListView(props, context) {
   return (
-    <div className="listView">
+    <div className={cx('listView')}>
       {
         props.posts.map((post, i, arr) => (
           <PostListItem post={post} key={i}

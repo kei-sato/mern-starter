@@ -2,6 +2,10 @@
 /* eslint-disable prefer-template*/
 import React, { Component, PropTypes } from 'react';
 
+import classNames from 'classnames/bind';
+import styles from '../scss/app';
+let cx = classNames.bind(styles);
+
 class PostCreateView extends Component {
   constructor(props, context) {
     super(props, context);
@@ -19,15 +23,19 @@ class PostCreateView extends Component {
   }
 
   render() {
-    const cls = 'form ' + (this.props.showAddPost ? 'appear' : '');
+    // const cls = 'form ' + (this.props.showAddPost ? 'appear' : '');
+    const cls = cx({
+      form: true,
+      appear: this.props.showAddPost
+    });
     return (
       <div className={cls}>
-        <div className="form-content">
-          <h2 className="form-title">Create new post</h2>
-          <input placeholder="Author's Name" className="form-field" ref="name"/>
-          <input placeholder="Post Title" className="form-field" ref="title"/>
-          <textarea placeholder="Post Content" className="form-field" ref="content"></textarea>
-          <a className="post-submit-button align-right" href="#" onClick={this.addPost}>Submit</a>
+        <div className={cx('form-content')}>
+          <h2 className={cx('form-title')}>Create new post</h2>
+          <input placeholder="Author's Name" className={cx('form-field')} ref="name"/>
+          <input placeholder="Post Title" className={cx('form-field')} ref="title"/>
+          <textarea placeholder="Post Content" className={cx('form-field')} ref="content"></textarea>
+          <a className={cx('post-submit-button', 'align-right')} href="#" onClick={this.addPost}>Submit</a>
         </div>
       </div>
     );

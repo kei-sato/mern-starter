@@ -5,6 +5,10 @@ import * as Actions from '../redux/actions/actions';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import classNames from 'classnames/bind';
+import styles from '../scss/app';
+let cx = classNames.bind(styles);
+
 class PostDetailView extends Component {
 
   constructor(props, context) {
@@ -27,11 +31,11 @@ class PostDetailView extends Component {
     return (
       <div>
         <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick}/>
-        <div className="container">
-          <div className="single-post post-detail">
-            <h3 className="post-title">{this.props.post.title}</h3>
-            <p className="author-name">By {this.props.post.name}</p>
-            <p className="post-desc">{this.props.post.content}</p>
+        <div className={cx('container')}>
+          <div className={cx('single-post', 'post-detail')}>
+            <h3 className={cx('post-title')}>{this.props.post.title}</h3>
+            <p className={cx('author-name')}>By {this.props.post.name}</p>
+            <p className={cx('post-desc')}>{this.props.post.content}</p>
           </div>
         </div>
         <Footer />

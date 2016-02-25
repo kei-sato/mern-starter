@@ -3,16 +3,20 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
+import classNames from 'classnames/bind';
+import styles from '../scss/app';
+let cx = classNames.bind(styles);
+
 function Header(props, context) {
   return (
-    <div className="header">
-      <div className="header-content">
-        <h1 className="site-title">
+    <div className={cx('header')}>
+      <div className={cx('header-content')}>
+        <h1 className={cx('site-title')}>
           <Link to="/" onClick={props.handleLogoClick}>MERN Starter Blog</Link>
         </h1>
         {
           context.router.isActive('/', true)
-            ? <a className="add-post-button" href="#" onClick={props.onClick}>Add Post</a>
+            ? <a className={cx('add-post-button')} href="#" onClick={props.onClick}>Add Post</a>
             : null
         }
       </div>

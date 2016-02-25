@@ -7,6 +7,10 @@ import Footer from '../components/Footer';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/actions/actions';
 
+import classNames from 'classnames/bind';
+import styles from '../scss/app';
+let cx = classNames.bind(styles);
+
 class PostContainer extends Component {
   constructor(props, context) {
     super(props, context);
@@ -36,7 +40,7 @@ class PostContainer extends Component {
     return (
       <div>
         <Header onClick={this.handleClick} />
-        <div className="container">
+        <div className={cx('container')}>
           <PostCreateView addPost={this.add}
             showAddPost={this.state.showAddPost}
           />
