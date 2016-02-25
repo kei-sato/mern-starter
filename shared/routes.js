@@ -5,9 +5,9 @@ import App from './container/App';
 import PostContainer from './container/PostContainer/PostContainer';
 import PostDetailView from './container/PostDetailView/PostDetailView';
 
-// enable to reload on css updated 
+// enable to reload on css updated
 import classNames from 'classnames/bind';
-import styles from '../static/css/app';
+import styles from './scss/app';
 let cx = classNames.bind(styles);
 
 const routes = (

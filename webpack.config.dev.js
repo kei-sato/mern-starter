@@ -15,14 +15,14 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
+    extensions: ['', '.js', '.jsx', '.scss'],
   },
 
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loader: 'style!css?modules',
+        test: /\.scss$/,
+        loader: 'style!css?modules!sass',
       },
       {
         test: /\.jsx*$/,

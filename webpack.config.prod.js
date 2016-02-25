@@ -11,16 +11,16 @@ module.exports = {
     path: __dirname + '/static/dist/',
     filename: 'bundle.js',
   },
-  
+
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.scss'],
   },
-  
+
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style','css?modules'),
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style','css?modules','sass'),
       },
       {
         test: /\.jsx*$/,
