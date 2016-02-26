@@ -4,7 +4,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
-import routes from '../../shared/routes';
+import createRoutes from '../../shared/routes';
 import { configureStore } from '../../shared/redux/store/configureStore';
 import { fetchComponentData } from '../util/fetchData';
 
@@ -37,6 +37,21 @@ const renderFullPage = (html, initialState) => {
 // Server Side Rendering based on routes matched by React-router.
 module.exports = function(app, passport) {
   app.use((req, res) => {
+    const authenticated = req.isAuthenticated();
+
+    const initialState = {
+      // posts: [],
+      post: {},
+      user: {
+        authenticated: authenticated,
+        isWaiting: false
+      }
+    };
+
+    const store = configureStore(initialState);
+
+    const routes = createRoutes(store);
+
     // props differ on each url with given routes.
     // browserHistory take this role on the client side.
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
@@ -47,10 +62,6 @@ module.exports = function(app, passport) {
       if (!renderProps) {
         return res.status(404).end('Not found!');
       }
-
-      const initialState = { posts: [], post: {} };
-
-      const store = configureStore(initialState);
 
       // get actions to be done before rendering from "components", and "dispatch" them with "params"
       fetchComponentData(store.dispatch, renderProps.components, renderProps.params)

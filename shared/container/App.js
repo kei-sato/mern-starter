@@ -1,27 +1,17 @@
-/* eslint no-unused-vars: 0 */
 import React, { Component, PropTypes } from 'react';
-import PostListView from '../container/PostListView';
-import PostCreateView from '../components/PostCreateView';
-import { connect } from 'react-redux';
+import Navigation from './Navigation';
 
-class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
-  render() {
-    const { dispatch } = this.props;
-    return (
-      <div>
-        { this.props.children }
-      </div>
-    );
-  }
-}
-
-App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  children: PropTypes.object.isRequired,
+const App = ({children}) => {
+  return (
+    <div>
+      <Navigation />
+      {children}
+    </div>
+  );
 };
 
-export default connect()(App);
+App.propTypes = {
+  children: PropTypes.object
+};
+
+export default App;

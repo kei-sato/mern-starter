@@ -8,12 +8,13 @@ import App from '../shared/container/App';
 import PostListView from '../shared/container/PostListView';
 import PostDetailView from '../shared/container/PostDetailView';
 import { Router, browserHistory, Route, IndexRoute, match } from 'react-router';
-import routes from '../shared/routes';
+import createRoutes from '../shared/routes';
 
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 const store = configureStore(window.__INITIAL_STATE__);
 const history = browserHistory;
+const routes = createRoutes(store);
 
 render((
       <Provider store={store}>

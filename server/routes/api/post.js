@@ -1,4 +1,4 @@
-import * as PostController from '../controllers/post.controller';
+import * as PostController from '../../controllers/post';
 
 module.exports = function(app) {
   // Get all Posts
