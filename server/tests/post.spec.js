@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import mocha from 'mocha';
-import app from '../server';
 import chai from 'chai';
 import request from 'supertest';
 import mongoose from 'mongoose';
+import app from '..';
 import Post from '../models/post';
 
 const expect = chai.expect;
