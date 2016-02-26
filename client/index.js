@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import { configureStore } from '../shared/redux/store/configureStore';
 import { Provider } from 'react-redux';
-import postReducer from '../shared/redux/reducers/reducer';
+import postReducer from '../shared/redux/reducers';
 import { render } from 'react-dom';
 import React from 'react';
 import App from '../shared/container/App';

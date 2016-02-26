@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import PostListView from '../container/PostListView';
 import PostCreateView from '../components/PostCreateView';
 import { connect } from 'react-redux';
-import * as Actions from '../redux/actions/actions';
+import * as Actions from '../redux/actions';
 
 class App extends Component {
   constructor(props, context) {

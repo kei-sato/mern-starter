@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import PostListItem from '../components/PostListItem';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import * as Actions from '../redux/actions/actions';
+import * as Actions from '../redux/actions';
 
 function PostListView(props, context) {
   return (

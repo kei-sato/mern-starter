@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import * as Actions from '../redux/actions/actions';
+import * as Actions from '../redux/actions';
 
 class PostContainer extends Component {
   constructor(props, context) {
