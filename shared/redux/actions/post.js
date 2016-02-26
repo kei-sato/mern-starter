@@ -1,8 +1,10 @@
 /* eslint no-unused-vars: 0 */
+import request from 'axios';
 import * as ActionTypes from '../constants';
-import fetch from 'isomorphic-fetch';
 
-const baseURL = typeof window === 'undefined' ? process.env.BASE_URL || (`http://localhost:${(process.env.PORT || 8000)}`) : '';
+function makeRequest({ method='get', path='', data }) {
+  return request[method](path, data);
+}
 
 export function addPost(post) {
   return {
@@ -25,19 +27,15 @@ export function changeSelectedPost(slug) {
 
 export function addPostRequest(post) {
   return (dispatch) => {
-    fetch(`${baseURL}/api/addPost`, {
-      method: 'post',
-      body: JSON.stringify({
-        post: {
-          name: post.name,
-          title: post.title,
-          content: post.content,
-        },
-      }),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-    }).then((res) => res.json()).then(res => dispatch(addPost(res.post)));
+    const data = {
+      post: {
+        name: post.name,
+        title: post.title,
+        content: post.content,
+      },
+    };
+    return makeRequest({ method: 'post', path: '/api/addPost', data })
+    .then(res => dispatch(addPost(res.data.post)));
   };
 }
 
@@ -50,12 +48,8 @@ export function addSelectedPost(post) {
 
 export function getPostRequest(post) {
   return (dispatch) => {
-    return fetch(`${baseURL}/api/getPost?slug=${post}`, {
-      method: 'get',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-    }).then((response) => response.json()).then(res => dispatch(addSelectedPost(res.post)));
+    return makeRequest({ path: `/api/getPost?slug=${post}` })
+    .then(res => dispatch(addSelectedPost(res.data.post)));
   };
 }
 
@@ -75,22 +69,14 @@ export function addPosts(posts) {
 
 export function fetchPosts() {
   return (dispatch) => {
-    return fetch(`${baseURL}/api/getPosts`).
-      then((response) => response.json()).
-      then((response) => dispatch(addPosts(response.posts)));
+    return makeRequest({ path: '/api/getPosts' })
+    .then((res) => dispatch(addPosts(res.data.posts)));
   };
 }
 
 export function deletePostRequest(post) {
   return (dispatch) => {
-    fetch(`${baseURL}/api/deletePost`, {
-      method: 'post',
-      body: JSON.stringify({
-        postId: post._id,
-      }),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-    }).then(() => dispatch(deletePost(post)));
+    return makeRequest({ method: 'post', path: '/api/deletePost', data: { postId: post._id } })
+    .then((res) => dispatch(deletePost(post)));
   };
 }
