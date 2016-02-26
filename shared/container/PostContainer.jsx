@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import * as Actions from '../redux/actions';
+import { postActions } from '../redux/actions';
 
 class PostContainer extends Component {
   constructor(props, context) {
@@ -27,7 +27,7 @@ class PostContainer extends Component {
   }
 
   add(name, title, content) {
-    this.props.dispatch(Actions.addPostRequest({ name, title, content }));
+    this.props.dispatch(postActions.addPostRequest({ name, title, content }));
     this.setState({
       showAddPost: false,
     });
@@ -49,7 +49,7 @@ class PostContainer extends Component {
   }
 }
 
-PostContainer.need = [() => { return Actions.fetchPosts(); }];
+PostContainer.need = [() => { return postActions.fetchPosts(); }];
 PostContainer.contextTypes = {
   router: React.PropTypes.object,
 };

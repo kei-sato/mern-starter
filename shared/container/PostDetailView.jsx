@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as Actions from '../redux/actions';
+import { postActions } from '../redux/actions';
 import classNames from 'classnames';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -21,7 +21,7 @@ class PostDetailView extends Component {
   }
 
   handleLogoClick() {
-    this.props.dispatch(Actions.fetchPosts());
+    this.props.dispatch(postActions.fetchPosts());
   }
 
   render() {
@@ -42,7 +42,7 @@ class PostDetailView extends Component {
 }
 
 PostDetailView.need = [(params) => {
-  return Actions.getPostRequest.bind(null, params.slug)();
+  return postActions.getPostRequest.bind(null, params.slug)();
 }];
 
 PostDetailView.contextTypes = {

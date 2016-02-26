@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import PostListItem from '../components/PostListItem';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
-import * as Actions from '../redux/actions';
+import { postActions } from '../redux/actions';
 
 function PostListView(props, context) {
   return (
@@ -12,11 +12,11 @@ function PostListView(props, context) {
         props.posts.map((post, i, arr) => (
           <PostListItem post={post} key={i}
             onClick={function handleClick() {
-              props.dispatch(Actions.addSelectedPost(post));
+              props.dispatch(postActions.addSelectedPost(post));
             }}
             onDelete={function handleDelete() {
               if (confirm('Do you want to delete this post')) { // eslint-disable-line
-                props.dispatch(Actions.deletePostRequest(post));
+                props.dispatch(postActions.deletePostRequest(post));
               }
             }}
           />
