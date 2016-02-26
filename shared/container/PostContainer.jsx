@@ -5,9 +5,8 @@ import PostCreateView from '../components/PostCreateView';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import * as Actions from '../redux/actions/actions';
-
-import cx from 'classnames';
 
 class PostContainer extends Component {
   constructor(props, context) {
@@ -38,7 +37,7 @@ class PostContainer extends Component {
     return (
       <div>
         <Header onClick={this.handleClick} />
-        <div className={cx('container')}>
+        <div className={classNames('container')}>
           <PostCreateView addPost={this.add}
             showAddPost={this.state.showAddPost}
           />

@@ -5,8 +5,7 @@ import App from './container/App';
 import PostContainer from './container/PostContainer';
 import PostDetailView from './container/PostDetailView';
 
-// enable to reload on css updated
-import cx from 'classnames';
+// enable realoading on css updated
 import styles from './scss/app';
 
 const routes = (

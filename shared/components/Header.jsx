@@ -2,19 +2,18 @@
 /* eslint-disable prefer-template*/
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-
-import cx from 'classnames';
+import classNames from 'classnames';
 
 function Header(props, context) {
   return (
-    <div className={cx('header')}>
-      <div className={cx('header-content')}>
-        <h1 className={cx('site-title')}>
+    <div className={classNames('header')}>
+      <div className={classNames('header-content')}>
+        <h1 className={classNames('site-title')}>
           <Link to="/" onClick={props.handleLogoClick}>MERN Starter Blog</Link>
         </h1>
         {
           context.router.isActive('/', true)
-            ? <a className={cx('add-post-button')} href="#" onClick={props.onClick}>Add Post</a>
+            ? <a className={classNames('add-post-button')} href="#" onClick={props.onClick}>Add Post</a>
             : null
         }
       </div>

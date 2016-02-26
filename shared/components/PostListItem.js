@@ -2,21 +2,20 @@
 /* eslint-disable prefer-template*/
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-
-import cx from 'classnames';
+import classNames from 'classnames';
 
 function PostListItem(props, context) {
   return (
-    <div className={cx('single-post')}>
-      <h3 className={cx('post-title')}>
+    <div className={classNames('single-post')}>
+      <h3 className={classNames('post-title')}>
         <Link to={'/post/' + props.post.slug + '-' + props.post.cuid} onClick={props.onClick}>
             {props.post.title}
         </Link>
       </h3>
-      <p className={cx('author-name')}>By {props.post.name}</p>
-      <p className={cx('post-desc')}>{props.post.content}</p>
-      <p className={cx('post-action')}><a href="#" onClick={props.onDelete}>Delete Post</a></p>
-      <hr className={cx('divider')}/>
+      <p className={classNames('author-name')}>By {props.post.name}</p>
+      <p className={classNames('post-desc')}>{props.post.content}</p>
+      <p className={classNames('post-action')}><a href="#" onClick={props.onDelete}>Delete Post</a></p>
+      <hr className={classNames('divider')}/>
     </div>
   );
 }

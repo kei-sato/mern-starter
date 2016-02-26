@@ -2,10 +2,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/actions/actions';
+import classNames from 'classnames';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
-import cx from 'classnames';
 
 class PostDetailView extends Component {
 
@@ -29,11 +28,11 @@ class PostDetailView extends Component {
     return (
       <div>
         <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick}/>
-        <div className={cx('container')}>
-          <div className={cx('single-post', 'post-detail')}>
-            <h3 className={cx('post-title')}>{this.props.post.title}</h3>
-            <p className={cx('author-name')}>By {this.props.post.name}</p>
-            <p className={cx('post-desc')}>{this.props.post.content}</p>
+        <div className={classNames('container')}>
+          <div className={classNames('single-post', 'post-detail')}>
+            <h3 className={classNames('post-title')}>{this.props.post.title}</h3>
+            <p className={classNames('author-name')}>By {this.props.post.name}</p>
+            <p className={classNames('post-desc')}>{this.props.post.content}</p>
           </div>
         </div>
         <Footer />
