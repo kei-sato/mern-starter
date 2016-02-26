@@ -3,9 +3,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
-import classNames from 'classnames/bind';
-import styles from '../scss/app';
-let cx = classNames.bind(styles);
+import cx from 'classnames';
 
 function Header(props, context) {
   return (

@@ -2,9 +2,7 @@
 /* eslint-disable prefer-template*/
 import React, { Component, PropTypes } from 'react';
 
-import classNames from 'classnames/bind';
-import styles from '../scss/app';
-let cx = classNames.bind(styles);
+import cx from 'classnames';
 
 class PostCreateView extends Component {
   constructor(props, context) {

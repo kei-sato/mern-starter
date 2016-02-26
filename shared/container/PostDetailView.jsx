@@ -5,9 +5,7 @@ import * as Actions from '../redux/actions/actions';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import classNames from 'classnames/bind';
-import styles from '../scss/app';
-let cx = classNames.bind(styles);
+import cx from 'classnames';
 
 class PostDetailView extends Component {
 

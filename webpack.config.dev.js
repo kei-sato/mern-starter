@@ -22,7 +22,7 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loader: 'style!css?modules!sass',
+        loader: 'style!css!sass',
       },
       {
         test: /\.jsx*$/,

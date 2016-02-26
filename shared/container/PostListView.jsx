@@ -4,9 +4,7 @@ import PostListItem from '../components/PostListItem';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/actions/actions';
 
-import classNames from 'classnames/bind';
-import styles from '../scss/app';
-let cx = classNames.bind(styles);
+import cx from 'classnames';
 
 function PostListView(props, context) {
   return (

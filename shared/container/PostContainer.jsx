@@ -7,9 +7,7 @@ import Footer from '../components/Footer';
 import { connect } from 'react-redux';
 import * as Actions from '../redux/actions/actions';
 
-import classNames from 'classnames/bind';
-import styles from '../scss/app';
-let cx = classNames.bind(styles);
+import cx from 'classnames';
 
 class PostContainer extends Component {
   constructor(props, context) {

@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
-import classNames from 'classnames/bind';
-import styles from '../scss/app';
-let cx = classNames.bind(styles);
+import cx from 'classnames';
 
 function Footer(props, context) {
   return (
