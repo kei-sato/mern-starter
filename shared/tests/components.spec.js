@@ -31,7 +31,7 @@ describe('component tests', () => {
     const output = renderer.getRenderOutput();
     expect(output).toEqualJSX(
       <div className="single-post">
-        <h3 className="post-title ">
+        <h3 className="post-title">
           <Link to={'/post/' + post.slug + '-' + post.cuid} onClick={function noop() {}}>
             {post.title}
           </Link>
@@ -49,7 +49,7 @@ describe('component tests', () => {
     renderer.render(<PostCreateView showAddPost={false} addPost={function noop() {}}/>);
     const output = renderer.getRenderOutput();
     expect(output).toEqualJSX(
-      <div className="form ">
+      <div className="form">
         <div className="form-content">
           <h2 className="form-title">Create new post</h2>
           <input placeholder="Author's Name" className="form-field" ref="name"/>
