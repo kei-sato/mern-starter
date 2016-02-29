@@ -1,4 +1,5 @@
 import Post from './models/post';
+import User from './models/user';
 
 export default function () {
   Post.count().exec((err, count) => {
@@ -43,4 +44,23 @@ export default function () {
       }
     });
   });
+
+  User.count().exec((err, count) => {
+    if (count > 0) {
+      return;
+    }
+
+    const user1 =  new User({
+      id      : 1,
+      username: "foobar",
+      password: "foobar"
+    });
+
+    user1.save((error) => {
+      if (!error) {
+        // console.log('ready to go....');
+      }
+    });
+  });
+
 }
