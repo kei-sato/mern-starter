@@ -4,71 +4,52 @@ import postReducer from '../redux/reducers';
 import deepFreeze from 'deep-freeze';
 import * as ActionTypes from '../redux/constants';
 
+const initialState = {
+  post: {
+    posts: [],
+    post: null,
+  },
+  user: {
+    authenticated: false,
+    isWaiting: false,
+  },
+};
+
+const post1 = {
+  name: 'prank',
+  title: 'first post',
+  content: 'Hello world!',
+  _id: null,
+  cuid: null,
+  slug: 'first-post',
+};
+
 describe('reducer tests', () => {
   it('action ADD_POST is working', () => {
-    const stateBefore = { posts: [], post: null };
-    const stateAfter = { posts: [{
-      name: 'prank',
-      title: 'first post',
-      content: 'Hello world!',
-      _id: null,
-      cuid: null,
-      slug: 'first-post',
-    }], post: null };
+    const stateBefore = initialState;
+    const stateAfter = Object.assign({}, initialState, { post: {
+      posts: [post1],
+      post: null,
+    }});
+    const action = Object.assign({}, post1, { type: ActionTypes.ADD_POST });
 
-    const action = {
-      type: ActionTypes.ADD_POST,
-      name: 'prank',
-      title: 'first post',
-      content: 'Hello world!',
-      _id: null,
-      cuid: null,
-      slug: 'first-post',
-    };
     deepFreeze(stateBefore);
     deepFreeze(action);
     expect(stateAfter).toEqual(postReducer(stateBefore, action));
   });
 
   it('action ADD_SELECTED_POST is working', () => {
-    const stateBefore = {
-      posts: [{
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
-
-      }],
-      selectedPost: null,
-    };
-
-    const stateAfter = {
-      posts: [{
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
-      }],
-      post: {
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
-      },
-    };
-
+    const stateBefore = Object.assign({}, initialState, { post: {
+      posts: [post1],
+      post: null,
+    }});
+    const stateAfter = Object.assign({}, initialState, { post: {
+      posts: [post1],
+      post: post1,
+    }});
     const action = {
-      type: ActionTypes.ADD_SELECTED_POST,
-      post: {
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
-        _id: null,
-        slug: 'first-post',
-      },
+      post: post1,
+      type: ActionTypes.ADD_SELECTED_POST
     };
 
     deepFreeze(stateBefore);
