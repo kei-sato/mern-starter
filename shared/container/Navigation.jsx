@@ -10,7 +10,7 @@ class Navigation extends Component {
     const { dispatch } = this.props;
     return (
       <nav className={classNames('navigation')} role="navigation">
-          <Link to="/" className={classNames('navigation__item', 'navigation__item--logo')} activeClassName={classNames('navigation__item--active')}>Ninja Ocean</Link>
+          <Link to="/" className={classNames('navigation__item', 'navigation__item--logo')} activeClassName={classNames('navigation__item--active')}>MERN Starter</Link>
           { this.props.user.authenticated ? (
             <Link onClick={()=> dispatch(logOut())} className={classNames('navigation__item')} to="/">Logout</Link>
           ) : (

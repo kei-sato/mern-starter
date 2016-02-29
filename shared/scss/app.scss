@@ -159,18 +159,18 @@ body {
 }
 
 .header {
-	background-color: #eee;
-	background-image: url('/img/header-bk.png');
+	background-color: #fff;
 	background-position: center;
 	background-size: cover;
-	border-bottom: 1px solid #ccc;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .header .header-content {
 	width: 100%;
 	max-width: 980px;
 	margin: auto;
-	padding: 64px 16px;
+	padding: 6px 16px;
 	overflow: auto;
 }
 

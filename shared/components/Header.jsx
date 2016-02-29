@@ -8,9 +8,6 @@ function Header(props, context) {
   return (
     <div className={classNames('header')}>
       <div className={classNames('header-content')}>
-        <h1 className={classNames('site-title')}>
-          <Link to="/" onClick={props.handleLogoClick}>MERN Starter Blog</Link>
-        </h1>
         {
           context.router.isActive('/', true)
             ? <a className={classNames('add-post-button')} href="#" onClick={props.onClick}>Add Post</a>
